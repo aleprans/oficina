@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function index(){
+        if(Auth::check()){
+            return redirect('horimetros');
+        }else {
+            return view('login');
+        }
+    }
+
     public function auth(Request $request) {
 
         //  dd(bcrypt('151296'));
@@ -21,7 +29,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('home');
+            return redirect('horimetros');
         } else {
             return redirect()->back()->with('msg', 'Usuário e/ou senha inválidos!');
         }

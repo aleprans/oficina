@@ -6,12 +6,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="{{ URL('img/logo.jpg') }}" />
+  <link rel="shortcut icon" href="{{ URL('img/logo.png') }}" />
  
   <!-- Custom fonts for this template-->
-  <link href="{{ URL('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    
-  {{-- <link href="https://fonts.googleapis.com/css?family=NunitoSans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> --}}
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
   <!-- jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -20,10 +18,6 @@
   <!-- BOOTSTRAP -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- dataTables -->
-  <link rel="stylesheet" href="{{ URL('datatables/dataTables.bootstrap4.min.css') }}">
-
-  {{-- <link rel="stylesheet" href="{{ URL('css/select.css') }}"> --}}
  
   <!-- Custom styles for this template-->
   <link href="{{ URL('css/sb-admin-2.min.css') }}" rel="stylesheet">
@@ -56,29 +50,29 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             
-            <!-- Nav Item  -->
+            <!-- Nav Item 
             <li class="nav-item" id="dashboard">
                 <a class="nav-link" href="">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
-            </li>
-            <li class="nav-item" id="corretivas">
-                <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-exchange-alt"></i>
-                    <span>Corretivas</span></a>
-            </li>
-            <li class="nav-item" id="preventivas">
-                <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-users"></i>
-                    <span>Preventivas</span></a>
-            </li>
-            <li class="nav-item" id="horimetros">
-              <a class="nav-link" href="">
-                <i class="fas fa-fw fa-users"></i>
+            </li> -->
+            <li class="nav-item" id="horimetro">
+              <a class="nav-link" href="{{ route('horimetros') }}">
+                <i class="fa fa-clock"></i>
                 <span>Horimetros</span></a>
             </li>
+            <li class="nav-item" id="corretiva">
+                <a class="nav-link" href="{{ route('corretivas') }}">
+                    <i class="fa fa-screwdriver-wrench"></i>
+                    <span>Corretivas</span></a>
+            </li>
+            <li class="nav-item" id="preventiva">
+                <a class="nav-link" href="{{ route('preventivas') }}">
+                    <i class="fa fa-toolbox"></i>
+                    <span>Preventivas</span></a>
+            </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('logout') }}">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>SAIR</span></a>
             </li>
@@ -106,7 +100,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <div class="nav-link dropdown-toggle" >
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()}}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->nome}}</span>
                                 <img class="img-profile rounded-circle"
                                 src="{{ URL('img/undraw_profile.svg') }}">
                             </div>
@@ -143,9 +137,6 @@
 
   <!-- BOOTSTRAP -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- jquery-mask -->
-  <script src="{{ URL('js/jquery.mask.js') }}"></script>
         
   <!-- DATATABLES -->
   <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
